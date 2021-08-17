@@ -4,7 +4,11 @@
   "description": "server for landing page",
   "main": "server.js",
   "scripts": {
+    "start":"node server",
     "server": "nodemon server.js"
+  },
+  "engines": {
+    "node": "^14.15.5"
   },
   "author": "zaki",
   "license": "MIT",
