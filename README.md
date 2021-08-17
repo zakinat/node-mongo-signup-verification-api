@@ -22,6 +22,7 @@ the main server side work on local url localhost:5000/api/auth
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - for sending verifacation emails using SMTP
 - [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express) -a living documentation for your API hosted from your API server via a route
 - [yamljs](https://www.npmjs.com/package/yamljs)-Standalone JavaScript YAML 1.2 Parser & Encoder. Works under node.js and all major browsers. Also brings command line YAML/JSON conversion tools.
+- [ethereal.email](https://ethereal.email/login)- a mock up smtp
 
 ## Features
 - Authentication (login/register with email-password)
