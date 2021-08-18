@@ -38,3 +38,4 @@ the main server side work on local url localhost:5000/api/auth
 Setup:
 - replace the config-example.env with your config.env file
 - run ```npm i && npm run server```  to start the app
+- you can see documentation on the url localhost:"yourport"/api/docs
