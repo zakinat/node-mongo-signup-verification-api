@@ -39,3 +39,4 @@ Setup:
 - replace the config-example.env with your config.env file
 - run ```npm i && npm run server```  to start the app
 - you can see documentation on the url localhost:"yourport"/api/docs
+- if you want to see emails that the programm send pleas go to (https://ethereal.email/login) and log in as user: rebecca.sanford17@ethereal.email and pass 9ehZN56ka9QhyZM9ex
