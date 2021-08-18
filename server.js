@@ -29,9 +29,10 @@ app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: 
 
 //use routes
 app.use('/api/auth',require('./user.auth/user.routes'))
+app.get('/',(req,res)=> res.send('please go to : /api/docs to see documentaion'))
 
 // swagger docs route
-app.use('/', require('./_helpers/swagger'))
+app.use('/api/docs', require('./_helpers/swagger'))
 
 
 // global error handler
