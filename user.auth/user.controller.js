@@ -52,6 +52,7 @@ await sendVerificationEmail(savedUser, origin)
 
       res.status(200).json({
         token,
+        refreshToken:refreshToken.token,
         user:{...basicDetails(savedUser)},
         msg:'Registration successful, please check your email for verification instructions'
       })
@@ -104,6 +105,7 @@ const signIn=async(req,res)=>{
     setTokenCookie(res, refreshToken.token)
     res.status(200).json({
       token,
+      refreshToken:refreshToken.token,  
       user: {...basicDetails(user)}
     })
   } catch (e) {
@@ -133,6 +135,7 @@ refreshToken =updateRfreshToken(refreshToken,ipAddress)
     setTokenCookie(res, refreshToken.token)
 res.status(200).json({
   token,
+  refreshToken:refreshToken.token,  
   user: {...basicDetails(user)},  
 })
 } catch (e) {
@@ -336,7 +339,7 @@ try {
   if (!user ) throw Error('User does not exist') 
   await user.remove()
   const refreshToken=await RefreshToken.findOne({user:req.params.id})
-  await refreshToken.remove()
+  if(refreshToken) {await refreshToken.remove()}
   res.status(200).json({ msg: 'Account deleted successfully' })
 } catch (e) {
   res.status(400).json({ error: e.message })
