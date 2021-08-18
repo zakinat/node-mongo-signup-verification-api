@@ -160,9 +160,10 @@ const revokeToken=async(req,res)=>{
 
 let revokeduser=userRequester
 if (req.body.id){
-   refreshToken=await RefreshToken.findOne({user:req.body.id}).populate('user')
-   const {user:revokedUserById} =refreshToken
-   revokeduser=revokedUserById
+   revokeduser =await User.findById(req.body.id).select('-password')
+   if (!revokeduser ) throw Error('User does not exist')
+   refreshToken= await RefreshToken.findOne({user:req.body.id})
+   if (!refreshToken) {refreshToken=generateRefreshToken(revokeduser, ipAddress)}
 }
 revokeduser.revoked=Date.now()
 await revokeduser.save()
